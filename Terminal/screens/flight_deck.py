@@ -311,14 +311,6 @@ class SolversStoreView(VerticalScroll):
                 return tile
         return None
 
-    def get_focused_or_first_descriptor(self) -> SolverDescriptor | None:
-        """Retrieve descriptor of focused tile, or first tile if none focused."""
-        tile = self.get_focused_tile()
-        if tile is not None:
-            return tile.descriptor
-        tiles = list(self.query(SolverTile))
-        return tiles[0].descriptor if tiles else None
-
     def action_stage_selected(self) -> None:
         """Stage currently focused solver to pipeline."""
         tile = self.get_focused_tile()
